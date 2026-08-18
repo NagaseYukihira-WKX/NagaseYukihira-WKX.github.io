@@ -1,279 +1,1148 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>王康璇｜个人主页</title>
 
+
   <style>
+
+    /* ==============================
+       整个网页
+       ============================== */
+
     * {
       box-sizing: border-box;
     }
 
+
     body {
+
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   "PingFang SC", "Hiragino Sans",
-                   "Yu Gothic", "Microsoft YaHei", sans-serif;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "PingFang SC",
+        "Hiragino Sans",
+        "Yu Gothic",
+        "Microsoft YaHei",
+        sans-serif;
+
       background: #f5f6f8;
+
       color: #222;
+
       line-height: 1.7;
+
     }
+
+
+
+    /* ==============================
+       顶部导航栏
+       ============================== */
 
     header {
+
       background: white;
+
       border-bottom: 1px solid #e5e7eb;
+
       position: sticky;
+
       top: 0;
+
       z-index: 10;
+
     }
+
 
     nav {
+
       max-width: 1000px;
+
       margin: 0 auto;
+
       padding: 18px 24px;
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
+
     }
+
 
     .name {
+
       font-size: 20px;
+
       font-weight: 700;
+
     }
+
+
+
+    /* ==============================
+       中文 / 日本語按钮
+       ============================== */
+
+    .lang-buttons {
+
+      display: flex;
+
+      gap: 8px;
+
+    }
+
 
     .lang-buttons button {
+
       border: 1px solid #d1d5db;
+
       background: white;
+
       padding: 7px 12px;
-      margin-left: 8px;
+
       border-radius: 8px;
+
       cursor: pointer;
+
+      font-size: 14px;
+
     }
+
 
     .lang-buttons button:hover {
+
       background: #f0f0f0;
+
     }
+
+
+
+    /* ==============================
+       网页主体
+       ============================== */
 
     main {
+
       max-width: 1000px;
+
       margin: 0 auto;
+
       padding: 70px 24px;
+
     }
+
+
+
+    /* ==============================
+       首页标题
+       ============================== */
 
     .hero {
+
       margin-bottom: 60px;
+
     }
+
 
     .hero h1 {
+
       font-size: 48px;
+
       margin: 0 0 10px;
+
+      line-height: 1.3;
+
     }
+
 
     .hero p {
+
       color: #666;
+
       font-size: 19px;
+
       margin: 0;
+
     }
+
+
+
+    /* ==============================
+       学习 / 生活 / 留言
+       ============================== */
 
     .section-title {
+
       font-size: 30px;
-      margin: 50px 0 20px;
+
+      margin: 55px 0 20px;
+
     }
+
+
+
+    /* ==============================
+       两列卡片
+       ============================== */
 
     .grid {
+
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 22px;
+
     }
+
+
+
+    /* ==============================
+       卡片
+       ============================== */
 
     .card {
+
       background: white;
+
       border: 1px solid #e5e7eb;
+
       border-radius: 16px;
+
       padding: 28px;
-      min-height: 180px;
+
+      min-height: 190px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
     }
+
 
     .card h3 {
+
       margin-top: 0;
+
+      margin-bottom: 10px;
+
       font-size: 24px;
+
     }
+
 
     .card p {
+
       color: #666;
+
+      margin-bottom: 10px;
+
     }
+
+
+
+    /* ==============================
+       卡片链接
+       ============================== */
+
+    .card-link {
+
+      text-decoration: none;
+
+      color: inherit;
+
+      display: block;
+
+    }
+
+
+    .card-link:hover .card {
+
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 8px 24px
+        rgba(0, 0, 0, 0.08);
+
+    }
+
+
+
+    /* ==============================
+       “点击进入”
+       ============================== */
+
+    .enter {
+
+      margin-top: 20px;
+
+      font-weight: 600;
+
+      color: #333 !important;
+
+    }
+
+
+
+    /* ==============================
+       留言板
+       ============================== */
+
+    .guestbook-card {
+
+      min-height: auto;
+
+    }
+
+
+
+    /* ==============================
+       页脚
+       ============================== */
 
     footer {
+
       text-align: center;
+
       color: #888;
-      padding: 30px 20px 50px;
+
+      padding:
+        30px 20px
+        50px;
+
       font-size: 14px;
+
     }
+
+
+
+    /* ==============================
+       日语默认隐藏
+       ============================== */
 
     .ja {
+
       display: none;
+
     }
+
+
+
+    /* ==============================
+       手机适配
+       ============================== */
 
     @media (max-width: 700px) {
-      .grid {
-        grid-template-columns: 1fr;
+
+
+      main {
+
+        padding:
+          45px 20px;
+
       }
 
-      .hero h1 {
-        font-size: 36px;
-      }
 
       nav {
-        align-items: flex-start;
+
+        padding:
+          15px 20px;
+
       }
+
+
+      .grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .hero {
+
+        margin-bottom: 40px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size: 34px;
+
+      }
+
+
+      .hero p {
+
+        font-size: 17px;
+
+      }
+
+
+      .section-title {
+
+        font-size: 27px;
+
+        margin-top: 45px;
+
+      }
+
+
+      .card {
+
+        min-height: auto;
+
+        padding: 24px;
+
+      }
+
+
+      .card h3 {
+
+        font-size: 22px;
+
+      }
+
+
+      .name {
+
+        font-size: 18px;
+
+      }
+
     }
+
+
   </style>
+
 </head>
+
+
 
 <body>
 
+
+
+<!-- ==============================
+     顶部
+     ============================== -->
+
 <header>
+
   <nav>
-    <div class="name">王康璇</div>
+
+
+    <div class="name">
+
+      王康璇
+
+    </div>
+
+
 
     <div class="lang-buttons">
-      <button onclick="setLanguage('zh')">中文</button>
-      <button onclick="setLanguage('ja')">日本語</button>
+
+      <button
+        onclick="setLanguage('zh')"
+      >
+
+        中文
+
+      </button>
+
+
+      <button
+        onclick="setLanguage('ja')"
+      >
+
+        日本語
+
+      </button>
+
     </div>
+
+
   </nav>
+
 </header>
+
+
 
 <main>
 
+
+
+  <!-- ==============================
+       欢迎
+       ============================== -->
+
   <section class="hero">
+
+
     <div class="zh">
-      <h1>欢迎来到我的个人主页</h1>
-      <p>记录学习、兴趣、项目与日常生活。</p>
+
+      <h1>
+
+        欢迎来到我的个人主页
+
+      </h1>
+
+
+      <p>
+
+        记录学习、兴趣、项目与日常生活。
+
+      </p>
+
     </div>
 
+
+
     <div class="ja">
-      <h1>私の個人ホームページへようこそ</h1>
-      <p>学習、興味、プロジェクト、日常生活を記録しています。</p>
+
+      <h1>
+
+        私の個人ホームページへようこそ
+
+      </h1>
+
+
+      <p>
+
+        学習、興味、プロジェクト、
+        日常生活を記録しています。
+
+      </p>
+
     </div>
+
+
   </section>
 
+
+
+
+
+  <!-- ==============================
+       学习
+       ============================== -->
+
   <section>
+
+
     <div class="zh">
-      <h2 class="section-title">学习</h2>
+
+      <h2 class="section-title">
+
+        学习
+
+      </h2>
+
     </div>
 
+
     <div class="ja">
-      <h2 class="section-title">学習</h2>
+
+      <h2 class="section-title">
+
+        学習
+
+      </h2>
+
     </div>
+
+
 
     <div class="grid">
 
-      <div class="card">
-        <div class="zh">
-          <h3>语言学</h3>
-          <p>
-            这里记录语言学相关的学习内容、读书笔记、
-            研究兴趣与资料整理。
-          </p>
+
+
+      <!-- 语言学 -->
+
+      <a
+        href="linguistics.html"
+        class="card-link"
+      >
+
+        <div class="card">
+
+
+          <div class="zh">
+
+            <h3>
+
+              语言学
+
+            </h3>
+
+
+            <p>
+
+              记录语言学相关的学习内容、
+              读书笔记、研究兴趣与资料整理。
+
+            </p>
+
+
+            <p class="enter">
+
+              点击进入 →
+
+            </p>
+
+          </div>
+
+
+
+          <div class="ja">
+
+            <h3>
+
+              言語学
+
+            </h3>
+
+
+            <p>
+
+              言語学に関する学習内容、
+              読書ノート、研究関心や
+              資料整理を掲載します。
+
+            </p>
+
+
+            <p class="enter">
+
+              クリックして開く →
+
+            </p>
+
+          </div>
+
+
         </div>
 
-        <div class="ja">
-          <h3>言語学</h3>
-          <p>
-            言語学に関する学習内容、読書ノート、
-            研究関心や資料整理を掲載します。
-          </p>
-        </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <div class="zh">
-          <h3>古生物学</h3>
-          <p>
-            这里记录古生物、演化、生物分类以及相关资料。
-          </p>
+
+
+
+
+      <!-- 古生物学 -->
+
+      <a
+        href="paleontology.html"
+        class="card-link"
+      >
+
+        <div class="card">
+
+
+          <div class="zh">
+
+            <h3>
+
+              古生物学
+
+            </h3>
+
+
+            <p>
+
+              记录古生物、演化、
+              生物分类以及相关资料。
+
+            </p>
+
+
+            <p class="enter">
+
+              点击进入 →
+
+            </p>
+
+          </div>
+
+
+
+          <div class="ja">
+
+            <h3>
+
+              古生物学
+
+            </h3>
+
+
+            <p>
+
+              古生物、進化、
+              生物分類などに関する
+              内容を記録します。
+
+            </p>
+
+
+            <p class="enter">
+
+              クリックして開く →
+
+            </p>
+
+          </div>
+
+
         </div>
 
-        <div class="ja">
-          <h3>古生物学</h3>
-          <p>
-            古生物、進化、生物分類などに関する内容を記録します。
-          </p>
-        </div>
-      </div>
+      </a>
+
 
     </div>
+
+
   </section>
 
+
+
+
+
+  <!-- ==============================
+       生活
+       ============================== -->
+
   <section>
+
+
     <div class="zh">
-      <h2 class="section-title">生活</h2>
+
+      <h2 class="section-title">
+
+        生活
+
+      </h2>
+
     </div>
 
+
     <div class="ja">
-      <h2 class="section-title">生活</h2>
+
+      <h2 class="section-title">
+
+        生活
+
+      </h2>
+
     </div>
+
+
 
     <div class="grid">
 
-      <div class="card">
-        <div class="zh">
-          <h3>Python 项目</h3>
-          <p>
-            这里放我正在学习和制作的 Python 小项目。
-          </p>
+
+
+      <!-- Python -->
+
+      <a
+        href="python.html"
+        class="card-link"
+      >
+
+        <div class="card">
+
+
+          <div class="zh">
+
+            <h3>
+
+              Python 项目
+
+            </h3>
+
+
+            <p>
+
+              记录正在学习和制作的
+              Python 项目。
+
+            </p>
+
+
+            <p class="enter">
+
+              点击进入 →
+
+            </p>
+
+          </div>
+
+
+
+          <div class="ja">
+
+            <h3>
+
+              Pythonプロジェクト
+
+            </h3>
+
+
+            <p>
+
+              学習中・制作中の
+              Pythonプロジェクトを
+              掲載します。
+
+            </p>
+
+
+            <p class="enter">
+
+              クリックして開く →
+
+            </p>
+
+          </div>
+
+
         </div>
 
-        <div class="ja">
-          <h3>Pythonプロジェクト</h3>
-          <p>
-            学習中・制作中の Python プロジェクトを掲載します。
-          </p>
-        </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <div class="zh">
-          <h3>日常</h3>
-          <p>
-            这里记录日常生活、旅行、照片以及一些随笔。
-          </p>
+
+
+
+
+      <!-- 日常 -->
+
+      <a
+        href="daily.html"
+        class="card-link"
+      >
+
+        <div class="card">
+
+
+          <div class="zh">
+
+            <h3>
+
+              日常
+
+            </h3>
+
+
+            <p>
+
+              记录日常生活、旅行、
+              照片以及一些随笔。
+
+            </p>
+
+
+            <p class="enter">
+
+              点击进入 →
+
+            </p>
+
+          </div>
+
+
+
+          <div class="ja">
+
+            <h3>
+
+              日常
+
+            </h3>
+
+
+            <p>
+
+              日々の生活、旅行、
+              写真、短い文章などを
+              記録します。
+
+            </p>
+
+
+            <p class="enter">
+
+              クリックして開く →
+
+            </p>
+
+          </div>
+
+
         </div>
 
-        <div class="ja">
-          <h3>日常</h3>
-          <p>
-            日々の生活、旅行、写真、短い文章などを記録します。
-          </p>
-        </div>
-      </div>
+      </a>
+
 
     </div>
+
+
   </section>
+
+
+
+
+
+  <!-- ==============================
+       留言
+       ============================== -->
+
+  <section>
+
+
+    <div class="zh">
+
+      <h2 class="section-title">
+
+        留言
+
+      </h2>
+
+    </div>
+
+
+    <div class="ja">
+
+      <h2 class="section-title">
+
+        メッセージ
+
+      </h2>
+
+    </div>
+
+
+
+    <a
+      href="guestbook.html"
+      class="card-link"
+    >
+
+
+      <div class="card guestbook-card">
+
+
+        <div class="zh">
+
+          <h3>
+
+            留言板
+
+          </h3>
+
+
+          <p>
+
+            欢迎在这里给我留言、
+            交流或留下建议。
+
+          </p>
+
+
+          <p class="enter">
+
+            进入留言板 →
+
+          </p>
+
+        </div>
+
+
+
+        <div class="ja">
+
+          <h3>
+
+            ゲストブック
+
+          </h3>
+
+
+          <p>
+
+            メッセージやご意見など、
+            お気軽にお寄せください。
+
+          </p>
+
+
+          <p class="enter">
+
+            ゲストブックを開く →
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </a>
+
+
+  </section>
+
+
 
 </main>
 
+
+
+
+
+<!-- ==============================
+     页脚
+     ============================== -->
+
 <footer>
+
   © 2026 王康璇
+
 </footer>
 
+
+
+
+
+<!-- ==============================
+     中文 / 日本語切换
+     ============================== -->
+
 <script>
+
+
   function setLanguage(lang) {
-    const zh = document.querySelectorAll('.zh');
-    const ja = document.querySelectorAll('.ja');
+
+
+    const chinese =
+      document.querySelectorAll('.zh');
+
+
+    const japanese =
+      document.querySelectorAll('.ja');
+
+
 
     if (lang === 'zh') {
-      zh.forEach(el => el.style.display = 'block');
-      ja.forEach(el => el.style.display = 'none');
-      document.documentElement.lang = 'zh-CN';
-    } else {
-      zh.forEach(el => el.style.display = 'none');
-      ja.forEach(el => el.style.display = 'block');
-      document.documentElement.lang = 'ja';
+
+
+      chinese.forEach(
+
+        element =>
+
+          element.style.display = 'block'
+
+      );
+
+
+      japanese.forEach(
+
+        element =>
+
+          element.style.display = 'none'
+
+      );
+
+
+      document.documentElement.lang =
+        'zh-CN';
+
+
+      localStorage.setItem(
+        'language',
+        'zh'
+      );
+
+
     }
+
+
+    else {
+
+
+      chinese.forEach(
+
+        element =>
+
+          element.style.display = 'none'
+
+      );
+
+
+      japanese.forEach(
+
+        element =>
+
+          element.style.display = 'block'
+
+      );
+
+
+      document.documentElement.lang =
+        'ja';
+
+
+      localStorage.setItem(
+        'language',
+        'ja'
+      );
+
+
+    }
+
+
   }
+
+
+
+  /* 记住访问者上一次选择的语言 */
+
+  const savedLanguage =
+    localStorage.getItem('language');
+
+
+  if (savedLanguage === 'ja') {
+
+    setLanguage('ja');
+
+  }
+
+  else {
+
+    setLanguage('zh');
+
+  }
+
+
 </script>
 
+
+
 </body>
+
 </html>
