@@ -1,74 +1,279 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王康璇｜个人主页</title>
 
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            max-width: 800px;
-            margin: 80px auto;
-            padding: 0 24px;
-            line-height: 1.8;
-            color: #222;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "PingFang SC", "Hiragino Sans",
+                   "Yu Gothic", "Microsoft YaHei", sans-serif;
+      background: #f5f6f8;
+      color: #222;
+      line-height: 1.7;
+    }
 
-        .subtitle {
-            color: #666;
-            font-size: 18px;
-        }
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        section {
-            margin-top: 50px;
-        }
+    nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        footer {
-            margin-top: 80px;
-            color: #888;
-            font-size: 14px;
-        }
-    </style>
+    .name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .lang-buttons button {
+      border: 1px solid #d1d5db;
+      background: white;
+      padding: 7px 12px;
+      margin-left: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .lang-buttons button:hover {
+      background: #f0f0f0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+
+    .hero {
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 19px;
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin: 50px 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 28px;
+      min-height: 180px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      color: #888;
+      padding: 30px 20px 50px;
+      font-size: 14px;
+    }
+
+    .ja {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      nav {
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>欢迎来到我的个人主页</h1>
+<header>
+  <nav>
+    <div class="name">王康璇</div>
 
-    <p class="subtitle">
-        Welcome to my personal website.
-    </p>
+    <div class="lang-buttons">
+      <button onclick="setLanguage('zh')">中文</button>
+      <button onclick="setLanguage('ja')">日本語</button>
+    </div>
+  </nav>
+</header>
 
-    <section>
-        <h2>关于我</h2>
-        <p>
-            这是我的个人网站。目前正在建设中。
-        </p>
-    </section>
+<main>
 
-    <section>
-        <h2>兴趣</h2>
-        <p>
-            语言学 · 日语 · 古典语言 · 古生物学
-        </p>
-    </section>
+  <section class="hero">
+    <div class="zh">
+      <h1>欢迎来到我的个人主页</h1>
+      <p>记录学习、兴趣、项目与日常生活。</p>
+    </div>
 
-    <section>
-        <h2>联系方式</h2>
-        <p>
-            GitHub: NagaseYukihira-WKX
-        </p>
-    </section>
+    <div class="ja">
+      <h1>私の個人ホームページへようこそ</h1>
+      <p>学習、興味、プロジェクト、日常生活を記録しています。</p>
+    </div>
+  </section>
 
-    <footer>
-        © 2026
-    </footer>
+  <section>
+    <div class="zh">
+      <h2 class="section-title">学习</h2>
+    </div>
+
+    <div class="ja">
+      <h2 class="section-title">学習</h2>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="zh">
+          <h3>语言学</h3>
+          <p>
+            这里记录语言学相关的学习内容、读书笔记、
+            研究兴趣与资料整理。
+          </p>
+        </div>
+
+        <div class="ja">
+          <h3>言語学</h3>
+          <p>
+            言語学に関する学習内容、読書ノート、
+            研究関心や資料整理を掲載します。
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="zh">
+          <h3>古生物学</h3>
+          <p>
+            这里记录古生物、演化、生物分类以及相关资料。
+          </p>
+        </div>
+
+        <div class="ja">
+          <h3>古生物学</h3>
+          <p>
+            古生物、進化、生物分類などに関する内容を記録します。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="zh">
+      <h2 class="section-title">生活</h2>
+    </div>
+
+    <div class="ja">
+      <h2 class="section-title">生活</h2>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="zh">
+          <h3>Python 项目</h3>
+          <p>
+            这里放我正在学习和制作的 Python 小项目。
+          </p>
+        </div>
+
+        <div class="ja">
+          <h3>Pythonプロジェクト</h3>
+          <p>
+            学習中・制作中の Python プロジェクトを掲載します。
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="zh">
+          <h3>日常</h3>
+          <p>
+            这里记录日常生活、旅行、照片以及一些随笔。
+          </p>
+        </div>
+
+        <div class="ja">
+          <h3>日常</h3>
+          <p>
+            日々の生活、旅行、写真、短い文章などを記録します。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 王康璇
+</footer>
+
+<script>
+  function setLanguage(lang) {
+    const zh = document.querySelectorAll('.zh');
+    const ja = document.querySelectorAll('.ja');
+
+    if (lang === 'zh') {
+      zh.forEach(el => el.style.display = 'block');
+      ja.forEach(el => el.style.display = 'none');
+      document.documentElement.lang = 'zh-CN';
+    } else {
+      zh.forEach(el => el.style.display = 'none');
+      ja.forEach(el => el.style.display = 'block');
+      document.documentElement.lang = 'ja';
+    }
+  }
+</script>
 
 </body>
 </html>
